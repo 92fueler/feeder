@@ -1,5 +1,10 @@
 import { createGlobalStyle } from "styled-components";
-
+import px2vw from "./utils/pw2vw";
+// reset.css
+/* http://meyerweb.com/eric/tools/css/reset/ 
+  v2.0 | 20110126
+  License: none (public domain)
+*/
 export const GlobalResetStyle = createGlobalStyle`
 	html, body, div, span, applet, object, iframe,
 	h1, h2, h3, h4, h5, h6, p, blockquote, pre,
@@ -44,6 +49,18 @@ export const GlobalResetStyle = createGlobalStyle`
 		border-collapse: collapse;
 		border-spacing: 0;
 	}
+
+	:root {
+      font-size: ${px2vw(24)};
+
+      @media (min-width: 768px) {
+        font-size: ${px2vw(18)};
+      }
+
+      @media (min-width: 1024px) {
+        font-size: ${px2vw(16)};
+      }
+    }
 `;
 
 // export const Row = styled.div`

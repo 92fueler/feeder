@@ -1,2 +1,3 @@
-#Tap News
-##a responsive web application with news scraping and recommendation system
+# Feeder
+
+> a full-stack project with news scraping and recommendation system

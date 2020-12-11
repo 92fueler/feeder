@@ -1,14 +1,24 @@
 import React, { Component } from "react";
-import { HeaderWrapper, Logo, Button } from "./style";
-
+import {
+  HeaderContainer,
+  Logo,
+  HomeButton,
+  NavSearch,
+  Nav,
+  NavButton,
+} from "./style";
 class Header extends Component {
   render() {
     return (
-      <HeaderWrapper>
+      <HeaderContainer>
         <Logo />
-        <Button className="signin">Sign In</Button>
-        <Button className="signup">Sign Up</Button>
-      </HeaderWrapper>
+        <HomeButton>Home</HomeButton>
+        <NavSearch placeholder="Search" />
+        <Nav>
+          <NavButton>Login</NavButton>
+          <NavButton className="signup">Sign Up</NavButton>
+        </Nav>
+      </HeaderContainer>
     );
   }
 }
