@@ -30,7 +30,9 @@ export const HomeButton = styled.button`
   color: #ec6149;
 `;
 
-export const NavSearch = styled.input`
+export const NavSearch = styled.input.attrs({
+  placeholder: "Search",
+})`
   width: ${px2vw(360)};
   height: ${px2vw(28)};
   margin: auto;
@@ -39,7 +41,11 @@ export const NavSearch = styled.input`
   outline: none;
   border-radius: ${px2vw(19)};
   background: #eee;
-  font-size: ${px2vw(14)};
+  font-size: ${px2vw(12)};
+  color: #777;
+  &::placeholder {
+    color: #999;
+  }
 `;
 
 export const Nav = styled.div`

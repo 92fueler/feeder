@@ -13,7 +13,7 @@ class Header extends Component {
       <HeaderContainer>
         <Logo />
         <HomeButton>Home</HomeButton>
-        <NavSearch placeholder="Search" />
+        <NavSearch />
         <Nav>
           <NavButton>Login</NavButton>
           <NavButton className="signup">Sign Up</NavButton>
