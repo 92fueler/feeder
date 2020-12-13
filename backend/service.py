@@ -1,4 +1,11 @@
 import pyjsonrpc
+import os
+import sys
+
+# import common package in parent directory
+sys.path.append(os.path.join(os.path.dirname(__file__), './', 'utils'))
+
+
 
 SERVER_HOST = 'localhost'
 SERVER_PORT = 4040
