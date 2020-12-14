@@ -1,4 +1,4 @@
 {
-  "python.pythonPath": "/usr/local/bin/python2",
+  "python.pythonPath": "/usr/local/bin/python",
   "python.autoComplete.extraPaths": ["./common"]
 }
