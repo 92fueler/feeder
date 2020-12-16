@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import Header from "./Header/index";
+import NewsPanel from "./NewsPanel/index";
 
 import { GlobalResetStyle } from "./style";
 
@@ -13,6 +14,7 @@ class App extends Component {
       <>
         <GlobalResetStyle />
         <Header />
+        <NewsPanel />
       </>
     );
   }

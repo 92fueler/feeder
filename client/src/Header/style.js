@@ -4,71 +4,109 @@ import logoPic from "../static/logo.png";
 
 export const HeaderContainer = styled.div`
   display: flex;
-  justify-content: space-between;
-  height: ${px2vw(56)};
-  margin: ${px2vw(32)};
-  max-width: 100%;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  margin: 0 auto;
+  max-width: 80%;
   border-bottom: ${px2vw(1)} solid #f0f0f0;
+
+  @media (min-width: 768px) {
+    flex-wrap: nowrap;
+  }
 `;
 
 export const Logo = styled.a.attrs({ href: "/" })`
-  width: ${px2vw(110)};
-  height: 100%;
-  margin: auto;
   background: url(${logoPic});
   background-size: contain;
+  background-repeat: no-repeat;
+  margin-bottom: ${px2vw(7)};
+
+  @media (min-width: 768px) {
+    width: ${px2vw(100)};
+    min-height: ${px2vw(56)};
+    height: 100%;
+    margin-right: 100px;
+  }
 `;
 
-export const HomeButton = styled.button`
-  height: ${px2vw(28)};
-  line-height: ${px2vw(28)};
-  margin: auto;
-  padding: 0 ${px2vw(20)};
-  font-size: ${px2vw(12)};
-  border-radius: ${px2vw(19)};
+export const NavButton = styled.button`
   border: ${px2vw(1)} solid #ec6149;
-  color: #ec6149;
+
+  &.home,
+  &.login {
+    color: #ec6149;
+  }
+
+  &.signup {
+    color: #fff;
+    background: #ec6149;
+  }
+
+  @media (min-width: 320) {
+    width: ${px2vw(320, 320)};
+    height: ${px2vw(26, 320)};
+    border-radius: ${px2vw(13, 320)};
+    padding: 0 ${px2vw(20, 320)};
+    font-size: 1rem;
+  }
+
+  @media (min-width: 768) {
+    width: ${px2vw(320, 768)};
+    height: ${px2vw(26, 768)};
+    border-radius: ${px2vw(13, 768)};
+    padding: 0 ${px2vw(20, 768)};
+    font-size: 1rem;
+    margin-left: ${px2vw(30, 768)}
+    margin-right:  ${px2vw(30, 768)};
+  }
+
+  @media (min-width: 1024px) {
+    height: ${px2vw(30)};
+    line-height: ${px2vw(30)};
+    border-radius: ${px2vw(15)};
+    padding: 0 ${px2vw(20)};
+    font-size: 1rem;
+    margin-left: ${px2vw(30)};
+    margin-right: ${px2vw(30)};
+  }
 `;
 
 export const NavSearch = styled.input.attrs({
   placeholder: "Search",
 })`
-  width: ${px2vw(360)};
-  height: ${px2vw(28)};
-  margin: auto;
-  padding: 0 ${px2vw(20)};
   border: none;
   outline: none;
-  border-radius: ${px2vw(19)};
   background: #eee;
-  font-size: ${px2vw(12)};
   color: #777;
   &::placeholder {
     color: #999;
   }
-`;
 
-export const Nav = styled.div`
-  width: ${px2vw(200)};
-  height: ${px2vw(28)};
-  display: flex;
-  justify-content: space-evenly;
-  line-height: ${px2vw(28)};
-  font-size: ${px2vw(12)};
-  margin: auto;
-`;
+  @media (min-width: 320) {
+    width: ${px2vw(320, 320)};
+    height: ${px2vw(26, 320)};
+    border-radius: ${px2vw(13, 320)};
+    font-size: 1rem;
+  }
 
-export const NavButton = styled.button`
-  height: ${px2vw(28)};
-  line-height: ${px2vw(28)};
-  margin: auto;
-  padding: 0 ${px2vw(20)};
-  font-size: ${px2vw(12)};
-  border-radius: ${px2vw(19)};
-  border: ${px2vw(1)} solid #ec6149;
-  color: #ec6149;
-  &.signup {
-    color: #fff;
-    background: #ec6149;
+  @media (min-width: 768) {
+    width: ${px2vw(150, 768)};
+    height: ${px2vw(30, 768)};
+    padding: 0 ${px2vw(10, 768)};
+    border-radius: ${px2vw(15, 768)};
+    font-size: 1rem;
+    margin-left: ${px2vw(80, 768)};
+    margin-right: ${px2vw(80, 768)};
+  }
+
+  @media (min-width: 1024px) {
+    width: ${px2vw(200)};
+    height: ${px2vw(30)};
+    padding: 0 ${px2vw(20)};
+    border-radius: ${px2vw(15)};
+    font-size: 1rem;
+    margin-left: ${px2vw(150)};
+    margin-right: ${px2vw(150)};
   }
 `;

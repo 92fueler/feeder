@@ -54,43 +54,11 @@ export const GlobalResetStyle = createGlobalStyle`
       font-size: ${px2vw(24)};
 
       @media (min-width: 768px) {
-        font-size: ${px2vw(18)};
+        font-size: ${px2vw(16)};
       }
 
       @media (min-width: 1024px) {
-        font-size: ${px2vw(16)};
+        font-size: ${px2vw(12)};
       }
     }
 `;
-
-// export const Row = styled.div`
-//   &::after {
-//     content: "";
-//     clear: both;
-//     display: table;
-//   }
-// `;
-
-// function getWidthString(span) {
-//   if (!span) return;
-
-//   let width = (span / 12) * 100;
-//   return `width: ${width}%`;
-// }
-
-// export const Column = styled.div`
-//   float: left;
-//   ${({ xs }) => (xs ? getWidthString(xs) : "width: 100%")}
-
-//   @media only screen and (min-width: 768px) {
-//     ${({ sm }) => sm && getWidthString(sm)}
-//   }
-
-//   @media only screen and (min-width: 992px) {
-//     ${({ md }) => md && getWidthString(md)}
-//   }
-
-//   @media only screen and (min-width: 1200px) {
-//     ${({ lg }) => lg && getWidthString(lg)}
-//   }
-// `;
