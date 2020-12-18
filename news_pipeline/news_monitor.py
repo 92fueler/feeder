@@ -5,6 +5,7 @@ import sys
 import redis
 import hashlib
 import datetime
+import base64
 
 sys.path.append(os.path.join(os.path.dirname(__file__), '..', 'common'))
 
@@ -33,7 +34,9 @@ while True:
   news_list = news_api_client.getNewsFromSource(NEWS_SOURCES)
   num_of_new_news = 0
   for news in news_list:
-    news_digest = hashlib.md5(news['title'].encode('utf-8')).digest().encode('base64')
+    # type(news_digest): bytes 
+    news_digest = base64.b64encode(hashlib.md5(news['title'].encode('utf-8')).digest())
+    print('first news: ', type(news))
     if redis_client.get(news_digest) is None:
       num_of_new_news = num_of_new_news + 1
       news['digest'] = news_digest
@@ -42,10 +45,13 @@ while True:
       # format: YYYY-MM-DDTHH:MM:SS in UTC
       news['publishedAt'] = datetime.datetime.utcnow().strftime('%Y-%m-%dT%H:%M:%SZ')
 
+    # convert news from dict to string
+    news = str(news)
+    print('second news: ', news)
     redis_client.set(news_digest, news)
     redis_client.expire(news_digest, NEWS_TIME_OUT_IN_SECONDS)
 
     cloudAMQP_client.sendMessage(news)
 
-  print "Fetched %d new news." % num_of_new_news
+  print("Fetched %d new news." % num_of_new_news)
   cloudAMQP_client.sleep(SLEEP_TIME_IN_SECOUNDS)
