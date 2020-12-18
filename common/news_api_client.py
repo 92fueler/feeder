@@ -14,6 +14,8 @@ def buildUrl(end_point=NEWS_API_ENDPOINT, api_name=ARTICALS_API):
 
 def getNewsFromSource(sources=DEFAULT_SOURCES, sortBy=SORT_BY_TOP):
   articles = []
+  
+  # News API can only take one source at a time, so for-loop is used here
   for source in sources:
     payload = {'apiKey' : NEWS_API_KEY,
               'source' : source,

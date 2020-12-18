@@ -36,7 +36,7 @@ while True:
   for news in news_list:
     # type(news_digest): bytes 
     news_digest = base64.b64encode(hashlib.md5(news['title'].encode('utf-8')).digest())
-    print('first news: ', type(news))
+
     if redis_client.get(news_digest) is None:
       num_of_new_news = num_of_new_news + 1
       news['digest'] = news_digest
@@ -47,7 +47,6 @@ while True:
 
     # convert news from dict to string
     news = str(news)
-    print('second news: ', news)
     redis_client.set(news_digest, news)
     redis_client.expire(news_digest, NEWS_TIME_OUT_IN_SECONDS)
 

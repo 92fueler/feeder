@@ -13,7 +13,7 @@ def test_basic():
     client.sleep(10)
     receivedMsg = client.getMessage()
     assert sentMsg == receivedMsg
-    print 'test_basic passed!'
+    print('test_basic passed!')
 
 if __name__ == "__main__":
     test_basic()
