@@ -1,16 +1,18 @@
 import React, { Component } from 'react'
-import Header from './common/Header/index'
-// import NewsPanel from "./NewsPanel/index";
-
+import { Provider } from 'react-redux'
 import { GlobalResetStyle } from './style'
+import store from './store'
+
+import Header from './common/Header/index'
 
 class App extends Component {
   render() {
     return (
       <>
-        <GlobalResetStyle />
-        <Header />
-        {/* <NewsPanel /> */}
+        <Provider store={store}>
+          <GlobalResetStyle />
+          <Header />
+        </Provider>
       </>
     )
   }

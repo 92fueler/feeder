@@ -1,5 +1,7 @@
-import React, { Component } from 'react'
+import React from 'react'
+import { connect } from 'react-redux'
 import { CSSTransition } from 'react-transition-group'
+import { actionCreators } from './store'
 import {
   HeaderWrapper,
   Logo,
@@ -11,60 +13,50 @@ import {
   Button,
 } from './style'
 
-class Header extends Component {
-  constructor(props) {
-    super(props)
-    this.state = {
-      focused: false,
-    }
-    this.handleInputFocus = this.handleInputFocus.bind(this)
-    this.handleInputBlur = this.handleInputBlur.bind(this)
-  }
-  render() {
-    return (
-      <HeaderWrapper>
-        <Logo />
-        <Nav>
-          <NavItem className="left active">Home</NavItem>
-          <NavItem className="left">Download App</NavItem>
-          <SearchWrapper>
-            <CSSTransition
-              in={this.state.focused}
-              timeout={200}
-              classNames="slide"
-            >
-              <NavSearch
-                className={this.state.focused ? 'focused' : ''}
-                onFocus={this.handleInputFocus}
-                onBlur={this.handleInputBlur}
-              ></NavSearch>
-            </CSSTransition>
-          </SearchWrapper>
-          <NavItem className="right">Login</NavItem>
-          <NavItem className="right">Aa</NavItem>
-        </Nav>
-        <Addition>
-          <Button className="writting">
-            <box-icon name="pen"></box-icon>
-            Publish
-          </Button>
-          <Button className="reg">Sign Up</Button>
-        </Addition>
-      </HeaderWrapper>
-    )
-  }
+const Header = (props) => {
+  return (
+    <HeaderWrapper>
+      <Logo />
+      <Nav>
+        <NavItem className="left active">Home</NavItem>
+        <NavItem className="left">Download App</NavItem>
+        <SearchWrapper>
+          <CSSTransition in={props.focused} timeout={200} classNames="slide">
+            <NavSearch
+              className={props.focused ? 'focused' : ''}
+              onFocus={props.handleInputFocus}
+              onBlur={props.handleInputBlur}
+            ></NavSearch>
+          </CSSTransition>
+        </SearchWrapper>
+        <NavItem className="right">Login</NavItem>
+        <NavItem className="right">Aa</NavItem>
+      </Nav>
+      <Addition>
+        <Button className="writting">
+          <box-icon name="pen"></box-icon>
+          Publish
+        </Button>
+        <Button className="reg">Sign Up</Button>
+      </Addition>
+    </HeaderWrapper>
+  )
+}
 
-  handleInputFocus() {
-    this.setState({
-      focused: true,
-    })
+const mapStateToProps = (state) => {
+  return {
+    focused: state.header.get('focused'),
   }
-
-  handleInputBlur() {
-    this.setState({
-      focused: false,
-    })
+}
+const mapDispatchToProps = (dispatch) => {
+  return {
+    handleInputFocus() {
+      dispatch(actionCreators.searchFocus())
+    },
+    handleInputBlur() {
+      dispatch(actionCreators.searchBlur())
+    },
   }
 }
 
-export default Header
+export default connect(mapStateToProps, mapDispatchToProps)(Header)
