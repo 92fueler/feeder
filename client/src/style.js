@@ -1,5 +1,5 @@
-import { createGlobalStyle } from "styled-components";
-import px2vw from "./utils/pw2vw";
+import { createGlobalStyle } from 'styled-components'
+
 // reset.css
 /* http://meyerweb.com/eric/tools/css/reset/ 
   v2.0 | 20110126
@@ -23,7 +23,7 @@ export const GlobalResetStyle = createGlobalStyle`
 		padding: 0;
 		border: 0;
 		font-size: 100%;
-		font: inherit;
+		font-family: 'Arvo', serif;
 		vertical-align: baseline;
 	}
 	/* HTML5 display-role reset for older browsers */
@@ -49,16 +49,4 @@ export const GlobalResetStyle = createGlobalStyle`
 		border-collapse: collapse;
 		border-spacing: 0;
 	}
-
-	:root {
-      font-size: ${px2vw(24)};
-
-      @media (min-width: 768px) {
-        font-size: ${px2vw(16)};
-      }
-
-      @media (min-width: 1024px) {
-        font-size: ${px2vw(12)};
-      }
-    }
-`;
+`

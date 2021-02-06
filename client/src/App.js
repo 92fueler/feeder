@@ -1,12 +1,8 @@
-import React, { Component } from "react";
-import Header from "./Header/index";
-import NewsPanel from "./NewsPanel/index";
+import React, { Component } from 'react'
+import Header from './common/Header/index'
+// import NewsPanel from "./NewsPanel/index";
 
-import { GlobalResetStyle } from "./style";
-
-// import store from "./store";
-// import { Provider } from "react-redux";
-// import { BrowserRouter, Route } from "react-router-dom";
+import { GlobalResetStyle } from './style'
 
 class App extends Component {
   render() {
@@ -14,10 +10,10 @@ class App extends Component {
       <>
         <GlobalResetStyle />
         <Header />
-        <NewsPanel />
+        {/* <NewsPanel /> */}
       </>
-    );
+    )
   }
 }
 
-export default App;
+export default App
