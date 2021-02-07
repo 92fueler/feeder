@@ -1,6 +1,5 @@
 import styled from 'styled-components'
 import logoPic from '../../static/logo.png'
-// import { SearchAlt } from '@styled-icons/boxicons-regular'
 
 export const HeaderWrapper = styled.div`
   position: relative;
@@ -89,6 +88,46 @@ export const NavSearch = styled.input.attrs({
   &.slide-exit-active {
     width: 100%;
   }
+`
+
+export const SearchInfo = styled.div`
+  position: absolute;
+  left: 20px;
+  top: 56px;
+  width: 350px;
+  padding: 0 20px;
+  box-shadow: 0 0 8px rgba(0, 0, 0, 0.2);
+`
+
+export const SearchInfoTitle = styled.div`
+  margin-top: 20px;
+  margin-bottom: 15px;
+  line-height: 20px;
+  font-size: 14px;
+  color: #969696;
+`
+
+export const SearchInfoSwitch = styled.span`
+  float: right;
+  font-size: 13px;
+  cursor: pointer;
+`
+
+export const SearchInfoList = styled.div`
+  overflow: hidden;
+`
+
+export const SearchInfoItem = styled.a`
+  display: block;
+  float: left;
+  line-height: 20px;
+  padding: 0 5px;
+  margin-right: 10px;
+  margin-bottom: 15px;
+  font-size: 12px;
+  border: 1px solid #ddd;
+  color: #787878;
+  border-radius: 3px;
 `
 
 export const Addition = styled.div`
