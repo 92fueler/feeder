@@ -3,7 +3,7 @@ from json import loads
 
 NEWS_API_ENDPOINT = 'https://newsapi.org/v1/'
 NEWS_API_KEY = '735bb32a3d02445ca2a1e56143f0b3b2'
-ARTICALS_API = 'articles'
+ARTICALS_API = 'articles' 
 
 CNN = 'cnn'
 DEFAULT_SOURCES = [CNN]

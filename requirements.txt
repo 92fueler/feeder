@@ -2,5 +2,6 @@ enum
 python-jsonrpc
 pymongo
 pika
+lxml
 requests
 redis
