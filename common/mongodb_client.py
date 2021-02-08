@@ -11,4 +11,3 @@ client = MongoClient("%s:%s" % (MONGO_DB_HOST, MONGO_DB_PORT))
 def get_db(db=DB_NAME):
   db = client[db]
   return db
-

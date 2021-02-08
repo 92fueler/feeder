@@ -13,7 +13,7 @@ def test_basic():
   # news = client.getNewsFromSource(sources=['bbc'])
   # print news
   # assert len(news) > 0
-  print('test_basic passed!')
+  print 'test_basic passed!'
 
 if __name__ == '__main__':
   test_basic()

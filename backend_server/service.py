@@ -2,7 +2,6 @@ import pyjsonrpc
 import os
 import sys
 import json
-
 from bson.json_util import dumps
 
 # import common package in parent directory
@@ -14,12 +13,13 @@ SERVER_PORT = 4040
 
 class RequestHandler(pyjsonrpc.HttpRequestHandler):
     """ Test method """
-    # defining a RPC API is easy as below
+    # this method is for initial testing 
     @pyjsonrpc.rpcmethod
     def add(self, a, b):
         print "add is called with %d and %d" % (a, b)
         return a + b
 
+    # this is to get news from mongoDB
     @pyjsonrpc.rpcmethod
     def getNews(self):
         db = mongodb_client.get_db();

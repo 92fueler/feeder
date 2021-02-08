@@ -1,4 +1,7 @@
 {
-  "python.pythonPath": "/Library/Developer/CommandLineTools/usr/bin/python3",
-  "python.autoComplete.extraPaths": ["./common"]
+  "python.pythonPath": "/bin/python2",
+  "python.terminal.activateTerminal": false,
+  "python.autoComplete.extraPaths": ["./common"],
+  "python.linting.pylintEnabled": true,
+  "python.linting.enabled": false
 }

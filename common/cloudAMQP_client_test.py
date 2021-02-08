@@ -1,4 +1,5 @@
 from cloudAMQP_client import CloudAMQPClient
+from enum import Enum
 
 # Use your own URL
 CLOUDAMQP_URL = "amqps://lkscpwqu:EO8DypleNz-LybiUDjXduVX-zP5YZxbm@chimpanzee.rmq.cloudamqp.com/lkscpwqu"
@@ -17,3 +18,4 @@ def test_basic():
 
 if __name__ == "__main__":
     test_basic()
+    
