@@ -6,6 +6,8 @@ import store from './store'
 
 import Header from './components/Header/index'
 import Home from './pages/Home/index'
+import Login from './pages/Login/index'
+// import Signup from './pages/Signup/index'
 class App extends Component {
   render() {
     return (
@@ -16,9 +18,9 @@ class App extends Component {
             <Header />
             <BrowserRouter>
               <div>
-                <Route path="/" exact>
-                  <Home />
-                </Route>
+                <Route path="/" exact component={Home}></Route>
+                <Route path="/login" exact component={Login}></Route>
+                {/* <Route path="/signup" exact component={Signup}></Route> */}
               </div>
             </BrowserRouter>
           </div>

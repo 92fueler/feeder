@@ -1,4 +1,9 @@
 {
-  "python.pythonPath": "/Library/Developer/CommandLineTools/usr/bin/python3",
-  "python.autoComplete.extraPaths": ["./common"]
+  "python.pythonPath": "/usr/bin/python3",
+  "python.autoComplete.extraPaths": [
+    "./common"
+  ],
+  "python.analysis.extraPaths": [
+    "./common"
+  ]
 }
