@@ -15,8 +15,8 @@ from cloudAMQP_client import CloudAMQPClient
 REDIS_HOST = 'localhost'
 REDIS_PORT = 6379
 
-NEWS_TIME_OUT_IN_SECONDS = 3600 * 24
-SLEEP_TIME_IN_SECOUNDS = 10
+NEWS_TIME_OUT_IN_SECONDS = 3600 * 24 # news expires in one day
+SLEEP_TIME_IN_SECOUNDS = 10 # every 10 seconds for every loop
 
 SCRAPE_NEWS_TASK_QUEUE_URL = 'amqps://lkscpwqu:EO8DypleNz-LybiUDjXduVX-zP5YZxbm@chimpanzee.rmq.cloudamqp.com/lkscpwqu'
 
@@ -38,8 +38,9 @@ while True:
 
     if redis_client.get(news_digest) is None:
       num_of_new_news = num_of_new_news + 1
-      news['digest'] = news_digest
+      news['digest'] = news_digest # every news has unique digest
 
+    # use utc time to avoid different time zones 
     if news['publishedAt'] is None:
       # format: YYYY-MM-DDTHH:MM:SS in UTC
       news['publishedAt'] = datetime.datetime.utcnow().strftime('%Y-%m-%dT%H:%M:%SZ')
@@ -52,4 +53,5 @@ while True:
     cloudAMQP_client.sendMessage(news)
 
   print("Fetched %d new news." % num_of_new_news)
-  cloudAMQP_client.sleep(SLEEP_TIME_IN_SECOUNDS)
+  
+  cloudAMQP_client.sleep(SLEEP_TIME_IN_SECOUNDS) # keep queue heartbeat 
