@@ -50,6 +50,6 @@ while True:
             try:
                 handle_message(msg)
             except Exception as e:
-                print e
+                print 'error ', e
                 pass
         scrape_news_queue_client.sleep(SLEEP_TIME_IN_SECONDS)

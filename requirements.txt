@@ -1,12 +1,16 @@
 enum
+pandas
 python-jsonrpc
 python-dateutil==2.4.0
 pymongo
 pika
 lxml==3.3.5
+numpy
 nltk==2.0.5
 newspaper
 requests==2.6.0
 redis
 sklearn
 six==1.7.3
+tensorflow==1.15
+watchdog 

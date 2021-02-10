@@ -1,5 +1,5 @@
 {
-  "python.pythonPath": "/bin/python2",
+  "python.pythonPath": "/home/jw/anaconda3/envs/tf/bin/python",
   "python.terminal.activateTerminal": false,
   "python.autoComplete.extraPaths": ["./common"],
   "python.linting.pylintEnabled": true,

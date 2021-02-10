@@ -3,14 +3,12 @@
 import datetime
 import os
 import sys
-import ast 
 
 from dateutil import *
 from sklearn.feature_extraction.text import TfidfVectorizer
 
 # import common package in parent directory
 sys.path.append(os.path.join(os.path.dirname(__file__), '..', 'common'))
-
 import mongodb_client
 from cloudAMQP_client import CloudAMQPClient
 
@@ -29,7 +27,6 @@ cloudAMQP_client = CloudAMQPClient(DEDUPE_NEWS_TASK_QUEUE_URL, DEDUPE_NEWS_TASK_
 def handle_message(msg):
     if msg is None:
         return
-    msg = ast.literal_eval(msg)
     task = msg
     text = str(task['text'])
     if text is None:
@@ -61,6 +58,7 @@ def handle_message(msg):
                 print "Duplicated news. Ignore."
                 return
     task['publishedAt'] = parser.parse(task['publishedAt'])
+    print 'this is digest ---------------',task['digest']
     db[NEWS_TABLE_NAME].replace_one({'digest': task['digest']}, task, upsert=True)
 
 
@@ -72,7 +70,7 @@ while True:
             try:
                 handle_message(msg)
             except Exception as e:
-                print e
+                print 'error ', e
                 pass
 
         cloudAMQP_client.sleep(SLEEP_TIME_IN_SECONDS)
