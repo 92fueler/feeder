@@ -1,0 +1,21 @@
+{
+  "name": "feeder",
+  "version": "1.0.0",
+  "description": "a news web application",
+  "main": "index.js",
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test --env=jsdom",
+    "eject": "react-scripts eject"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "materialize-css": "^0.100.2",
+    "react": "^16.2.0",
+    "react-dom": "^16.14.0",
+    "react-router": "^3.2.1",
+    "react-scripts": "^1.1.1"
+  }
+}
