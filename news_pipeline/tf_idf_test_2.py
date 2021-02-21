@@ -83,4 +83,4 @@ documents = [news1, news2]
 tfidf = TfidfVectorizer().fit_transform(documents)
 pairwise_sim = tfidf * tfidf.T
 
-print pairwise_sim.A
+print(pairwise_sim.A)

@@ -4,7 +4,5 @@
   "python.autoComplete.extraPaths": ["./common"],
   "python.linting.pylintEnabled": true,
   "python.linting.enabled": false,
-  "python.analysis.extraPaths": [
-    "./common"
-  ]
+  "python.analysis.extraPaths": ["./common"]
 }

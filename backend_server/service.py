@@ -1,36 +1,47 @@
-import pyjsonrpc
+"""Backend Service"""
+import json
 import os
 import sys
-import json
-from bson.json_util import dumps
 
-# import common package in parent directory
-sys.path.append(os.path.join(os.path.dirname(__file__), '..', 'common'))
-import mongodb_client
+import operations
+
+from bson.json_util import dumps
+from jsonrpclib.SimpleJSONRPCServer import SimpleJSONRPCServer
 
 SERVER_HOST = 'localhost'
 SERVER_PORT = 4040
 
-class RequestHandler(pyjsonrpc.HttpRequestHandler):
-    """ Test method """
-    # this method is for initial testing 
-    @pyjsonrpc.rpcmethod
-    def add(self, a, b):
-        print "add is called with %d and %d" % (a, b)
-        return a + b
+def add(num1, num2):
+    """ Add two numbers. """
+    print("add is called with %d and %d" % (num1, num2))
+    return num1 + num2
 
-    # this is to get news from mongoDB
-    @pyjsonrpc.rpcmethod
-    def getNews(self):
-        db = mongodb_client.get_db();
-        news = list(db['news'].find())
-        return json.loads(dumps(news))
 
-http_server = pyjsonrpc.ThreadingHttpServer(
-    server_address = (SERVER_HOST, SERVER_PORT),
-    RequestHandlerClass = RequestHandler
-)
+def get_one_news():
+    """ Get one news. """
+    print("getOneNews is called")
+    return json.loads(dumps(operations.getOneNews()))
 
-print "Starting HTTP server on %s:%d" % (SERVER_HOST, SERVER_PORT)
+def get_news_summaries_for_user(user_id, page_num):
+    """ Get news summaries for a user. """
+    print("get_news_summaries_for_user is called with %s and %s" %
+    (user_id, page_num))
+    return operations.getNewsSummariesForUser(user_id, page_num)
 
-http_server.serve_forever()
+def log_news_click_for_user(user_id, news_id):
+    print("log_news_click_for_user is called with %s and %s" % (user_id, news_id))
+    operations.logNewsClickForUser(user_id, news_id)
+
+# Threading RPC Server
+RPC_SERVER = SimpleJSONRPCServer((SERVER_HOST, SERVER_PORT))
+RPC_SERVER.register_function(add, 'add')
+# RPC_SERVER.register_function(get_one_news, 'getOneNews')
+# RPC_SERVER.register_function(
+#     get_news_summaries_for_user, 'getNewsSummariesForUser')
+# RPC_SERVER.register_function(
+#     log_news_click_for_user, 'logNewsClickForUser')
+
+
+print("Starting RPC server on %s:%d" % (SERVER_HOST, SERVER_PORT))
+
+RPC_SERVER.serve_forever()

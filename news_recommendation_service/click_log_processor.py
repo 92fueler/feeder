@@ -29,8 +29,8 @@ ALPHA = 0.1
 
 SLEEP_TIME_IN_SECONDS = 3
 
-LOG_CLICKS_TASK_QUEUE_URL = "amqp://lfwogwnt:NNagiowONx8Yh2sVeDZ481fBXllQfu4z@wombat.rmq.cloudamqp.com/lfwogwnt"
-LOG_CLICKS_TASK_QUEUE_NAME = "tap-news-log-clicks-task-queue"
+LOG_CLICKS_TASK_QUEUE_URL = "amqps://lkscpwqu:EO8DypleNz-LybiUDjXduVX-zP5YZxbm@chimpanzee.rmq.cloudamqp.com/lkscpwqu"
+LOG_CLICKS_TASK_QUEUE_NAME = "feeder-log-clicks-task-queue"
 
 PREFERENCE_MODEL_TABLE_NAME = "user_preference_model"
 NEWS_TABLE_NAME = "news"

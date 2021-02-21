@@ -4,6 +4,8 @@ import os
 import pandas as pd
 import pickle
 import shutil
+import sys
+sys.path.append('/home/jw/.local/lib/python3.8/site-packages')
 import tensorflow as tf
 
 from sklearn import metrics
